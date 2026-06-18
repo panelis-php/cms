@@ -37,6 +37,17 @@ return [
     'not_supported' => 'Database is not supported',
     'not_supported_reason' => 'Database driver :driver does not support auto-backup.',
 
+    'notifications' => [
+        'backup' => [
+            'title' => 'Database has been backed up',
+            'body' => 'The database backup has been completed successfully and is now available for download.',
+        ],
+        'queue' => [
+            'title' => 'Database backup queued',
+            'body' => 'Your database backup has been added to the queue and is being processed in the background. You\'ll receive a notification when it\'s finished.',
+        ],
+    ],
+
     'dropbox' => [
         'doc_hint' => '[Create a new :driver app](https://www.dropbox.com/developers/apps)',
         'no_package_title' => 'Dropbox is not available',
@@ -60,5 +71,6 @@ return [
         'download' => 'Download',
         'authorize' => 'Authorize :driver',
         'revoke' => 'Revoke :name',
+        'view' => 'View',
     ],
 ];

@@ -12,7 +12,7 @@ enum DatabasePeriod: string
             ->mapWithKeys(function ($case): array {
                 $case = $case->value;
 
-                return [$case => __(sprintf('database.period_%s', $case))];
+                return [$case => __(sprintf('database::database.period_%s', $case))];
             })
             ->toArray();
     }

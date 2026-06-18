@@ -16,9 +16,10 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
-use Modules\Database\Jobs\UploadToCloud;
+use Modules\Database\Jobs\Backup;
 use Modules\Database\Panel\Clusters\Databases;
 use Modules\Database\Panel\Clusters\Databases\Enums\DatabasePermission;
 use Modules\Database\Panel\Clusters\Databases\Forms\AutoBackupForm;
@@ -121,29 +122,14 @@ class AutoBackup extends Page implements HasSchemas
                 ])
                 ->requiresConfirmation()
                 ->action(function (array $data): void {
-                    try {
-                        $path = $this->databaseContract->backup();
+                    $data['users'] = [Auth::id()];
+                    Backup::dispatch($this->databaseContract, $data);
 
-                        // upload to cloud if possible
-                        if ($data['upload_to_cloud'] ?? false) {
-                            UploadToCloud::dispatch($path);
-                        }
-
-                        Notification::make()
-                            ->title(__('database::database.file_created'))
-                            ->success()
-                            ->send();
-
-                        return;
-                    } catch (Exception $e) {
-                        Log::error($e);
-
-                        Notification::make()
-                            ->title(__('database::database.file_not_created'))
-                            ->body($e->getMessage())
-                            ->warning()
-                            ->send();
-                    }
+                    Notification::make()
+                        ->title(__('database::database.notifications.queue.title'))
+                        ->body(__('database::database.notifications.queue.body'))
+                        ->success()
+                        ->send();
                 }),
         ];
     }

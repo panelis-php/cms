@@ -1,0 +1,15 @@
+{
+    "name": "panelis/branch",
+    "autoload": {
+        "psr-4": {
+            "Panelis\\Branch\\": "src/",
+            "Panelis\\Branch\\Database\\Factories\\": "database/factories/",
+            "Panelis\\Branch\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Panelis\\Branch\\Tests\\": "tests/"
+        }
+    }
+}

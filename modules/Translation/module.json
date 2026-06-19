@@ -1,5 +1,10 @@
 {
     "name": "Translation",
     "description": "Manage application translations directly from the admin panel",
-    "provider": "Modules\\Translation\\TranslationServiceProvider"
+    "providers": [
+        "Panelis\\Translation\\Providers\\TranslationServiceProvider"
+    ],
+    "plugins": [
+        "Panelis\\Translation\\Plugins\\TranslationPlugin"
+    ]
 }

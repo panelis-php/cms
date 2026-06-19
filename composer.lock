@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "652bd6a772a9b3287a6a5a025ca01209",
+    "content-hash": "2db855d941f183691fee8234d97c2206",
     "packages": [
         {
             "name": "bezhansalleh/filament-language-switch",
@@ -4560,6 +4560,206 @@
                 }
             ],
             "time": "2025-09-03T16:03:54+00:00"
+        },
+        {
+            "name": "panelis/branch",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Branch",
+                "reference": "14f2303e3a1424bfeecbe6b4b3663e8aef48a44f"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Branch\\": "src/",
+                    "Panelis\\Branch\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Branch\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Branch\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/database",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Database",
+                "reference": "b676c5151dcf87ce76b8be3ee77389c2f129f6e4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Database\\": "src/",
+                    "Panelis\\Database\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Database\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Database\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/job",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Job",
+                "reference": "f114ae4ca76be89fd9e13a5f82cc9c35ea40f8b8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Job\\": "src/",
+                    "Panelis\\Job\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Job\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Job\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/location",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Location",
+                "reference": "7cdb1399f87e43715184e619e2e998e477876c9d"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Location\\": "src/",
+                    "Panelis\\Location\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Location\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Location\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/module",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Module",
+                "reference": "913212dcca673b5c4d04b95871b466dbb4794cbf"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Module\\": "src/",
+                    "Panelis\\Module\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Module\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Module\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/setting",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Setting",
+                "reference": "c5e1c3d1300a2b5d396e753083a2ad421076ac21"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Setting\\": "src/",
+                    "Panelis\\Setting\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Setting\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Setting\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/translation",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/Translation",
+                "reference": "cf23f73be419c419139af53a8960dbe5d046428a"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\Translation\\": "src/",
+                    "Panelis\\Translation\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\Translation\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\Translation\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "panelis/user",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "modules/User",
+                "reference": "47dfa8a8dac3afa197d3dd47e5ab3fd8b70820c9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Panelis\\User\\": "src/",
+                    "Panelis\\User\\Database\\Factories\\": "database/factories/",
+                    "Panelis\\User\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Panelis\\User\\Tests\\": "tests/"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -13059,7 +13259,16 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "panelis/branch": 20,
+        "panelis/database": 20,
+        "panelis/job": 20,
+        "panelis/location": 20,
+        "panelis/module": 20,
+        "panelis/setting": 20,
+        "panelis/translation": 20,
+        "panelis/user": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

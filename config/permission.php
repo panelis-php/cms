@@ -1,5 +1,28 @@
 <?php
 
+use Panelis\Branch\Panel\Resources\BranchResource\Enums\BranchPermission;
+use Panelis\Database\Panel\Clusters\Databases\Enums\DatabasePermission;
+use Panelis\Job\Panel\Resources\FailedJobResource\Enums\FailedJobPermission;
+use Panelis\Job\Panel\Resources\JobResource\Enums\JobPermission;
+use Panelis\Location\Panel\Resources\CountryResource\Enums\CountryPermission;
+use Panelis\Location\Panel\Resources\DistrictResource\Enums\DistrictPermission;
+use Panelis\Location\Panel\Resources\RegionResource\Enums\RegionPermission;
+use Panelis\Module\Panel\Resources\Resources\ModuleResource\Enums\ModulePermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\CachePermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\CustomSettingPermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\DatetimePermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\LogPermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\MailPermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\NumberPermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\PanelPermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\SettingPermission;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\ThemePermission;
+use Panelis\Translation\Panel\Resources\TranslationResource\Enums\TranslationPermission;
+use Panelis\User\Panel\Resources\RoleResource\Enums\RolePermission;
+use Panelis\User\Panel\Resources\UserResource\Enums\UserPermission;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+
 return [
 
     'models' => [
@@ -13,7 +36,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => Spatie\Permission\Models\Permission::class,
+        'permission' => Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -24,7 +47,7 @@ return [
          * `Spatie\Permission\Contracts\Role` contract.
          */
 
-        'role' => Spatie\Permission\Models\Role::class,
+        'role' => Role::class,
 
     ],
 
@@ -142,7 +165,7 @@ return [
          * When permissions or roles are updated the cache is flushed automatically.
          */
 
-        'expiration_time' => \DateInterval::createFromDateString('24 hours'),
+        'expiration_time' => DateInterval::createFromDateString('24 hours'),
 
         /*
          * The cache key used to store all permissions.
@@ -160,31 +183,31 @@ return [
     ],
 
     'enums' => [
-        \Modules\Branch\Panel\Resources\BranchResource\Enums\BranchPermission::class,
+        BranchPermission::class,
 
-        \Modules\Location\Panel\Resources\CountryResource\Enums\CountryPermission::class,
-        \Modules\Location\Panel\Resources\RegionResource\Enums\RegionPermission::class,
-        \Modules\Location\Panel\Resources\DistrictResource\Enums\DistrictPermission::class,
+        CountryPermission::class,
+        RegionPermission::class,
+        DistrictPermission::class,
 
-        \Modules\User\Panel\Resources\UserResource\Enums\UserPermission::class,
-        \Modules\User\Panel\Resources\RoleResource\Enums\RolePermission::class,
-        \Modules\User\Panel\Resources\PermissionResource\Enums\Permission::class,
-        \Modules\Module\Panel\Resources\Resources\ModuleResource\Enums\ModulePermission::class,
-        \Modules\Translation\Panel\Resources\TranslationResource\Enums\TranslationPermission::class,
-        \Modules\Database\Panel\Clusters\Databases\Enums\DatabasePermission::class,
+        UserPermission::class,
+        RolePermission::class,
+        Panelis\User\Panel\Resources\PermissionResource\Enums\Permission::class,
+        ModulePermission::class,
+        TranslationPermission::class,
+        DatabasePermission::class,
 
-        \Modules\Job\Panel\Resources\JobResource\Enums\JobPermission::class,
-        \Modules\Job\Panel\Resources\FailedJobResource\Enums\FailedJobPermission::class,
+        JobPermission::class,
+        FailedJobPermission::class,
 
-        \Modules\Setting\Panel\Clusters\Settings\Enums\SettingPermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\CachePermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\LogPermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\MailPermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\CustomSettingPermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\DatetimePermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\NumberPermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\ThemePermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\UserPermission::class,
-        \Modules\Setting\Panel\Clusters\Settings\Enums\PanelPermission::class,
+        SettingPermission::class,
+        CachePermission::class,
+        LogPermission::class,
+        MailPermission::class,
+        CustomSettingPermission::class,
+        DatetimePermission::class,
+        NumberPermission::class,
+        ThemePermission::class,
+        Panelis\Setting\Panel\Clusters\Settings\Enums\UserPermission::class,
+        PanelPermission::class,
     ],
 ];

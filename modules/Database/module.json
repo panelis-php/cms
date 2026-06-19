@@ -2,5 +2,10 @@
     "name": "Database",
     "description": "Manage database backups, including manual backups, cloud uploads, and backup history.",
     "version": "1.0",
-    "provider": "Modules\\Database\\DatabaseServiceProvider"
+    "providers": [
+        "Panelis\\Database\\Providers\\DatabaseServiceProvider"
+    ],
+    "plugins": [
+        "Panelis\\Database\\Plugins\\DatabasePlugin"
+    ]
 }

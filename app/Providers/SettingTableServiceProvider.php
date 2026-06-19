@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use Modules\Setting\Models\Setting;
+use Panelis\Setting\Models\Setting;
 use Throwable;
 
 class SettingTableServiceProvider extends ServiceProvider

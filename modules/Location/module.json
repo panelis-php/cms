@@ -1,6 +1,11 @@
 {
     "name": "Location",
-    "provider": "Modules\\Location\\LocationServiceProvider",
     "description": "Manage countries, regions, and cities used by the application",
-    "builtin": false
+    "builtin": false,
+    "providers": [
+        "Panelis\\Location\\Providers\\LocationServiceProvider"
+    ],
+    "plugins": [
+        "Panelis\\Location\\Plugins\\LocationPlugin"
+    ]
 }

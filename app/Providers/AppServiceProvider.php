@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Number;
 use Illuminate\Support\ServiceProvider;
-use Modules\Setting\Panel\Clusters\Settings\Enums\NumberFormat;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\NumberFormat;
 
 class AppServiceProvider extends ServiceProvider
 {

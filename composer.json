@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "panelis-php/cms",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Panelis is a modular CMS built on Laravel and Filament designed to help PHP developers build extensible applications quickly.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

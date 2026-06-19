@@ -22,15 +22,15 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Modules\Branch\Models\Branch;
-use Modules\Branch\Panel\Pages\EditBranch;
-use Modules\Branch\Panel\Pages\RegisterBranch;
-use Modules\Module\Http\Middleware\RegisterModules;
-use Modules\ModuleManager;
-use Modules\User\Panel\Pages\EditProfile;
-use Modules\User\Panel\Pages\EmailVerificationPrompt;
-use Modules\User\Panel\Pages\Login;
-use Modules\User\Panel\Pages\RequestPasswordReset;
+use Panelis\Branch\Models\Branch;
+use Panelis\Branch\Panel\Pages\EditBranch;
+use Panelis\Branch\Panel\Pages\RegisterBranch;
+use Panelis\Module\Http\Middleware\RegisterModules;
+use Panelis\ModuleManager;
+use Panelis\User\Panel\Pages\EditProfile;
+use Panelis\User\Panel\Pages\EmailVerificationPrompt;
+use Panelis\User\Panel\Pages\Login;
+use Panelis\User\Panel\Pages\RequestPasswordReset;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -45,19 +45,7 @@ class AdminPanelProvider extends PanelProvider
                 ->tenantProfile(EditBranch::class);
         }
 
-        foreach (ModuleManager::getResources() as $resource) {
-            $panel->discoverResources(
-                in: $resource['path'],
-                for: $resource['namespace'],
-            );
-        }
-
-        foreach (ModuleManager::getClusters() as $cluster) {
-            $panel->discoverClusters(
-                in: $cluster['path'],
-                for: $cluster['namespace'],
-            );
-        }
+        $panel->plugins(ModuleManager::plugins());
 
         return $panel
             ->path(app('panelis')['path'] ?? '')
@@ -77,10 +65,6 @@ class AdminPanelProvider extends PanelProvider
 
                 return null;
             })
-
-            ->plugins([
-                // TodoPlugin::make(),
-            ])
             ->databaseNotifications()
             ->navigationGroups([
                 NavigationGroup::make(__('location.label'))
@@ -105,9 +89,6 @@ class AdminPanelProvider extends PanelProvider
             ->passwordReset(RequestPasswordReset::class)
             ->profile(EditProfile::class)
             ->emailVerification(EmailVerificationPrompt::class)
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->discoverClusters(in: app_path('Filament/Clusters'), for: 'App\\Filament\\Clusters')
             ->pages([
                 Dashboard::class,
             ])

@@ -1,0 +1,15 @@
+{
+    "name": "panelis/setting",
+    "autoload": {
+        "psr-4": {
+            "Panelis\\Setting\\": "src/",
+            "Panelis\\Setting\\Database\\Factories\\": "database/factories/",
+            "Panelis\\Setting\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Panelis\\Setting\\Tests\\": "tests/"
+        }
+    }
+}

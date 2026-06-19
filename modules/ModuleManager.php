@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules;
+namespace Panelis;
 
 class ModuleManager
 {
@@ -11,42 +11,28 @@ class ModuleManager
             ->toArray();
     }
 
-    public static function getResources(): array
-    {
-        return collect(glob(base_path('modules/*/Panel/Resources'), GLOB_ONLYDIR))
-            ->map(function (string $directory): array {
-                $module = basename(dirname(dirname($directory)));
-
-                return [
-                    'path' => $directory,
-                    'namespace' => "Modules\\{$module}\\Panel\\Resources",
-                ];
-            })
-            ->values()
-            ->toArray();
-    }
-
-    public static function getClusters(): array
-    {
-        return collect(glob(base_path('modules/*/Panel/Clusters'), GLOB_ONLYDIR))
-            ->map(function (string $directory): array {
-                $module = basename(dirname(dirname($directory)));
-                $namespace = "Modules\\{$module}\\Panel\\Clusters";
-
-                return [
-                    'path' => $directory,
-                    'namespace' => $namespace,
-                ];
-            })
-            ->toArray();
-    }
-
     public static function register(): void
     {
         foreach (static::getModules() as $module) {
             if (! empty($module['provider'])) {
                 app()->register($module['provider']);
             }
+
+            foreach ($module['providers'] ?? [] as $provider) {
+                app()->register($provider);
+            }
         }
+    }
+
+    public static function plugins(): array
+    {
+        $plugins = [];
+        foreach (static::getModules() as $module) {
+            foreach ($module['plugins'] ?? [] as $plugin) {
+                $plugins[] = new $plugin;
+            }
+        }
+
+        return $plugins;
     }
 }

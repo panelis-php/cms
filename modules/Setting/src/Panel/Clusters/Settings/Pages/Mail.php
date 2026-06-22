@@ -29,6 +29,7 @@ use Panelis\Setting\Models\Setting;
 use Panelis\Setting\Panel\Clusters\Settings;
 use Panelis\Setting\Panel\Clusters\Settings\Enums\MailPermission;
 use Panelis\Setting\Panel\Clusters\Settings\Enums\MailType;
+use Panelis\Setting\Panel\Clusters\Settings\Forms\Mail\CloudflareForm;
 use Panelis\Setting\Panel\Clusters\Settings\HasUpdateableForm;
 use Panelis\Setting\Panel\Clusters\Settings\UpdateSettingPage;
 use Symfony\Component\HttpFoundation\Response;
@@ -260,6 +261,15 @@ class Mail extends UpdateSettingPage implements HasSchemas, HasUpdateableForm
             ]);
     }
 
+    private function cloudflareSection(): Section
+    {
+        return Section::make(__('setting::setting.mail.cloudflare.driver'))
+            ->visible(fn (Get $get): bool => $get('mail.default') === MailType::Cloudflare)
+            ->disabled(! MailType::Cloudflare->installed())
+            ->description(__('setting::setting.mail.cloudflare.description'))
+            ->schema(CloudflareForm::schema($this->version));
+    }
+
     public function getTitle(): string|Htmlable
     {
         return __('setting::setting.mail.label');
@@ -393,6 +403,7 @@ class Mail extends UpdateSettingPage implements HasSchemas, HasUpdateableForm
             $this->postmarkSection(),
             $this->resendSection(),
             $this->sesSection(),
+            $this->cloudflareSection(),
         ])->disabled(! user_can(MailPermission::Edit));
     }
 

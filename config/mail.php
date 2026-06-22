@@ -80,6 +80,10 @@ return [
             'transport' => 'array',
         ],
 
+        'cloudflare' => [
+            'transport' => 'cloudflare',
+        ],
+
         'failover' => [
             'transport' => 'failover',
             'mailers' => [

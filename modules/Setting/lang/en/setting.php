@@ -246,6 +246,11 @@ return [
             'no_package_description' => 'Please install AWS SDK package using command: composer require aws/aws-sdk-php',
         ],
 
+        'storage' => [
+            'label' => 'Storage',
+            'description' => 'Filesystem-based cache store that can use any configured storage disk',
+        ],
+
         'failover' => [
             'label' => 'Failover',
             'description' => '',

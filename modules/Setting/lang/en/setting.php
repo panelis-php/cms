@@ -128,6 +128,15 @@ return [
         'test_subject' => 'Test mail!',
         'sender_section_description' => 'Name and e-mail will be used as the default identity when sending emails.',
 
+        'cloudflare' => [
+            'driver' => 'Cloudflare',
+            'description' => 'The Cloudflare e-mail setting allows your application to send emails using the Cloudflare email sending service',
+            'account_id' => 'Account ID',
+            'key' => 'Key',
+            'no_package_title' => 'Cloudflare package not installed',
+            'no_package_description' => 'Please install Cloudflare package using command: composer require symfony/http-client',
+        ],
+
         'log' => [
             'driver' => 'Log',
             'description' => 'This driver writes the e-mail messages to the application\'s log files instead of actually sending them.',

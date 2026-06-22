@@ -35,6 +35,11 @@ return [
         ],
     ],
 
+    'cloudflare' => [
+        'account_id' => env('CLOUDFLARE_ACCOUNT_ID'),
+        'key' => env('CLOUDFLARE_KEY'),
+    ],
+
     'dropbox' => [
         'client_id' => env('DROPBOX_CLIENT_ID'),
         'client_secret' => env('DROPBOX_CLIENT_SECRET'),

@@ -8,11 +8,9 @@ use Filament\Support\Contracts\HasLabel;
 
 enum MailType: string implements HasDescription, HasLabel
 {
+    case Cloudflare = 'cloudflare';
+
     case Log = 'log';
-
-    case Sendmail = 'sendmail';
-
-    case SMTP = 'smtp';
 
     case Mailgun = 'mailgun';
 
@@ -20,7 +18,11 @@ enum MailType: string implements HasDescription, HasLabel
 
     case Resend = 'resend';
 
+    case Sendmail = 'sendmail';
+
     case SES = 'ses';
+
+    case SMTP = 'smtp';
 
     public function getLabel(): string
     {
@@ -41,6 +43,7 @@ enum MailType: string implements HasDescription, HasLabel
             self::Postmark => InstalledVersions::isInstalled('symfony/postmark-mailer') && $symfonyHttpInstalled,
             self::SES => InstalledVersions::isInstalled('aws/aws-sdk-php'),
             self::Resend => InstalledVersions::isInstalled('resend/resend-laravel'),
+            self::Cloudflare => InstalledVersions::isInstalled('symfony/http-client'),
             default => true,
         };
     }

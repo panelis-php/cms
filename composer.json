@@ -13,16 +13,16 @@
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^3.0.0",
         "lorisleiva/laravel-actions": "^2.8",
-        "spatie/laravel-permission": "^6.16",
-        "spatie/laravel-translation-loader": "^2.8",
-        "panelis/translation": "dev-main",
-        "panelis/module": "dev-main",
-        "panelis/user": "dev-main",
-        "panelis/setting": "dev-main",
         "panelis/branch": "dev-main",
         "panelis/database": "dev-main",
+        "panelis/job": "dev-main",
         "panelis/location": "dev-main",
-        "panelis/job": "dev-main"
+        "panelis/module": "dev-main",
+        "panelis/setting": "dev-main",
+        "panelis/translation": "dev-main",
+        "panelis/user": "dev-main",
+        "spatie/laravel-permission": "^6.16",
+        "spatie/laravel-translation-loader": "^2.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

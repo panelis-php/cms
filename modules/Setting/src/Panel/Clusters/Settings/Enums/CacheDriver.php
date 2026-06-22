@@ -12,11 +12,13 @@ enum CacheDriver: string implements HasDescription, HasLabel
 
     case Database = 'database';
 
+    case DynamoDB = 'dynamodb';
+
     case Memcached = 'memcached';
 
     case Redis = 'redis';
 
-    case DynamoDB = 'dynamodb';
+    case Storage = 'storage';
 
     public function getLabel(): string
     {

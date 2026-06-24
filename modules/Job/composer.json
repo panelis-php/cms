@@ -1,5 +1,8 @@
 {
-    "name": "panelis/job",
+    "name": "panelis-php/job",
+    "description": "Monitor and manage queued jobs stored in the database",
+    "keywords": ["panelis"],
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Panelis\\Job\\": "src/",
@@ -10,6 +13,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\Job\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\Job\\Providers\\JobServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\Job\\Plugins\\JobPlugin"
+            ]
         }
     }
 }

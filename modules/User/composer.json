@@ -1,5 +1,7 @@
 {
-    "name": "panelis/user",
+    "name": "panelis-php/user",
+    "description": "Manage users, roles, and permissions for the application",
+    "keywords": ["panelis"],
     "autoload": {
         "psr-4": {
             "Panelis\\User\\": "src/",
@@ -10,6 +12,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\User\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\User\\Providers\\UserServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\User\\Plugins\\UserPlugin"
+            ]
         }
     }
 }

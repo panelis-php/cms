@@ -1,5 +1,7 @@
 {
-    "name": "panelis/translation",
+    "name": "panelis-php/translation",
+    "description": "Manage application translations directly from the admin panel",
+    "keywords": ["panelis"],
     "autoload": {
         "psr-4": {
             "Panelis\\Translation\\": "src/",
@@ -10,6 +12,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\Translation\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\Translation\\Providers\\TranslationServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\Translation\\Plugins\\TranslationPlugin"
+            ]
         }
     }
 }

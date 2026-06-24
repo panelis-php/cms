@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dd194df41e148c748d37ea24a8fb982",
+    "content-hash": "e24951e900dc8c6a4fb01a9f2e9aa8c2",
     "packages": [
         {
             "name": "bezhansalleh/filament-language-switch",
@@ -4566,14 +4566,26 @@
             "time": "2025-09-03T16:03:54+00:00"
         },
         {
-            "name": "panelis/branch",
+            "name": "panelis-php/branch",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Branch",
-                "reference": "14f2303e3a1424bfeecbe6b4b3663e8aef48a44f"
+                "reference": "d60573c7addcdf379b676e351b284bb8a7926360"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Branch\\Providers\\BranchServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Branch\\Plugins\\BranchPlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Branch\\": "src/",
@@ -4586,19 +4598,35 @@
                     "Panelis\\Branch\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage branches to organize data and enable multi-tenant access within the application",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/database",
+            "name": "panelis-php/database",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Database",
-                "reference": "b676c5151dcf87ce76b8be3ee77389c2f129f6e4"
+                "reference": "a5722f79bcd4a23ab523e3c03cdff68355fbae55"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Database\\Providers\\DatabaseServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Database\\Plugins\\DatabasePlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Database\\": "src/",
@@ -4611,19 +4639,35 @@
                     "Panelis\\Database\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage database backups, including manual backups, cloud uploads, and backup history.",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/job",
+            "name": "panelis-php/job",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Job",
-                "reference": "f114ae4ca76be89fd9e13a5f82cc9c35ea40f8b8"
+                "reference": "59e3529bcec2de2835f669176f5a1de50373dffe"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Job\\Providers\\JobServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Job\\Plugins\\JobPlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Job\\": "src/",
@@ -4636,19 +4680,35 @@
                     "Panelis\\Job\\Tests\\": "tests/"
                 }
             },
+            "description": "Monitor and manage queued jobs stored in the database",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/location",
+            "name": "panelis-php/location",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Location",
-                "reference": "7cdb1399f87e43715184e619e2e998e477876c9d"
+                "reference": "a4c744a6a7f8f384a10eacd897071cd6a9a96493"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Location\\Providers\\LocationServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Location\\Plugins\\LocationPlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Location\\": "src/",
@@ -4661,19 +4721,35 @@
                     "Panelis\\Location\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage countries, regions, and cities used by the application",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/module",
+            "name": "panelis-php/module",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Module",
-                "reference": "913212dcca673b5c4d04b95871b466dbb4794cbf"
+                "reference": "f4fb77aa84abe97b80696a82d3173f51a460f120"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Module\\Providers\\ModuleServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Module\\Plugins\\ModulePlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Module\\": "src/",
@@ -4686,19 +4762,35 @@
                     "Panelis\\Module\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage application translations directly from the admin panel",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/setting",
+            "name": "panelis-php/setting",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Setting",
-                "reference": "c5e1c3d1300a2b5d396e753083a2ad421076ac21"
+                "reference": "a8a1b1b2726ad37eeed6040d3dcd771d350396a5"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Setting\\Providers\\SettingServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Setting\\Plugins\\SettingPlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Setting\\": "src/",
@@ -4711,19 +4803,35 @@
                     "Panelis\\Setting\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage application settings including general configuration, logging, mail, formatting, and system options",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/translation",
+            "name": "panelis-php/translation",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/Translation",
-                "reference": "cf23f73be419c419139af53a8960dbe5d046428a"
+                "reference": "9aeeb5a48d8d62b10bab3a41685c18cfaa924aea"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\Translation\\Providers\\TranslationServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\Translation\\Plugins\\TranslationPlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\Translation\\": "src/",
@@ -4736,19 +4844,35 @@
                     "Panelis\\Translation\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage application translations directly from the admin panel",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
-            "name": "panelis/user",
+            "name": "panelis-php/user",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "modules/User",
-                "reference": "47dfa8a8dac3afa197d3dd47e5ab3fd8b70820c9"
+                "reference": "a4d1aaedfdc67f01f842e09c6a366ca2abbd3cf9"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panelis\\User\\Providers\\UserServiceProvider"
+                    ]
+                },
+                "panelis": {
+                    "plugins": [
+                        "Panelis\\User\\Plugins\\UserPlugin"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Panelis\\User\\": "src/",
@@ -4761,6 +4885,10 @@
                     "Panelis\\User\\Tests\\": "tests/"
                 }
             },
+            "description": "Manage users, roles, and permissions for the application",
+            "keywords": [
+                "panelis"
+            ],
             "transport-options": {
                 "relative": true
             }
@@ -13491,14 +13619,14 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "panelis/branch": 20,
-        "panelis/database": 20,
-        "panelis/job": 20,
-        "panelis/location": 20,
-        "panelis/module": 20,
-        "panelis/setting": 20,
-        "panelis/translation": 20,
-        "panelis/user": 20
+        "panelis-php/branch": 20,
+        "panelis-php/database": 20,
+        "panelis-php/job": 20,
+        "panelis-php/location": 20,
+        "panelis-php/module": 20,
+        "panelis-php/setting": 20,
+        "panelis-php/translation": 20,
+        "panelis-php/user": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

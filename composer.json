@@ -4,25 +4,25 @@
     "description": "Panelis is a modular CMS built on Laravel and Filament designed to help PHP developers build extensible applications quickly.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "modules/*"
+        }
+    ],
     "require": {
         "php": "^8.3",
-        "bezhansalleh/filament-language-switch": "^4.0",
         "filament/filament": "^5.1",
         "laravel/framework": "^13.0",
         "laravel/socialite": "^5.24",
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^3.0.0",
-        "lorisleiva/laravel-actions": "^2.8",
-        "panelis-php/branch": "dev-main",
-        "panelis-php/database": "dev-main",
-        "panelis-php/job": "dev-main",
-        "panelis-php/location": "dev-main",
-        "panelis-php/module": "dev-main",
-        "panelis-php/setting": "dev-main",
-        "panelis-php/translation": "dev-main",
-        "panelis-php/user": "dev-main",
-        "spatie/laravel-permission": "^6.16",
-        "spatie/laravel-translation-loader": "^2.8"
+        "panelis-php/branch": "^1.0.0",
+        "panelis-php/database": "^1.0.0",
+        "panelis-php/module": "^1.1.0",
+        "panelis-php/setting": "^1.1.0",
+        "panelis-php/translation": "^1.0.0",
+        "panelis-php/user": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -109,11 +109,5 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "path",
-            "url": "modules/*"
-        }
-    ]
+    "prefer-stable": true
 }

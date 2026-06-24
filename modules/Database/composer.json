@@ -1,5 +1,8 @@
 {
-    "name": "panelis/database",
+    "name": "panelis-php/database",
+    "description": "Manage database backups, including manual backups, cloud uploads, and backup history",
+    "keywords": ["panelis"],
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Panelis\\Database\\": "src/",
@@ -10,6 +13,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\Database\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\Database\\Providers\\DatabaseServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\Database\\Plugins\\DatabasePlugin"
+            ]
         }
     }
 }

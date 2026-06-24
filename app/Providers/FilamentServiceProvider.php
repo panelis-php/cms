@@ -8,17 +8,13 @@ use Filament\Resources\Resource;
 use Filament\Support\Facades\FilamentTimezone;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\ServiceProvider;
-use Panelis\ModuleManager;
 
 class FilamentServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
-    public function register(): void
-    {
-        ModuleManager::register();
-    }
+    public function register(): void {}
 
     /**
      * Bootstrap services.

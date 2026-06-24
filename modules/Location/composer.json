@@ -1,5 +1,8 @@
 {
-    "name": "panelis/location",
+    "name": "panelis-php/location",
+    "description": "Manage countries, regions, and cities used by the application",
+    "keywords": ["panelis"],
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Panelis\\Location\\": "src/",
@@ -10,6 +13,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\Location\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\Location\\Providers\\LocationServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\Location\\Plugins\\LocationPlugin"
+            ]
         }
     }
 }

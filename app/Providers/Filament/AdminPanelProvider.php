@@ -25,8 +25,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Panelis\Branch\Models\Branch;
 use Panelis\Branch\Panel\Pages\EditBranch;
 use Panelis\Branch\Panel\Pages\RegisterBranch;
-use Panelis\Module\Http\Middleware\RegisterModules;
-use Panelis\ModuleManager;
+use Panelis\Package;
 use Panelis\User\Panel\Pages\EditProfile;
 use Panelis\User\Panel\Pages\EmailVerificationPrompt;
 use Panelis\User\Panel\Pages\Login;
@@ -45,7 +44,7 @@ class AdminPanelProvider extends PanelProvider
                 ->tenantProfile(EditBranch::class);
         }
 
-        $panel->plugins(ModuleManager::plugins());
+        $panel->plugins(Package::getPlugins());
 
         return $panel
             ->path(app('panelis')['path'] ?? '')
@@ -92,6 +91,8 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 AccountWidget::class,
@@ -109,7 +110,6 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
 
                 // custom middlewares
-                RegisterModules::class,
                 RegisterNavigations::class,
                 SetTheme::class,
             ])

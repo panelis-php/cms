@@ -1,5 +1,8 @@
 {
-    "name": "panelis/branch",
+    "name": "panelis-php/branch",
+    "description": "Manage branches to organize data and enable multi-tenant access within the application",
+    "keywords": ["panelis"],
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Panelis\\Branch\\": "src/",
@@ -10,6 +13,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\Branch\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\Branch\\Providers\\BranchServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\Branch\\Plugins\\BranchPlugin"
+            ]
         }
     }
 }

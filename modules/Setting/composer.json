@@ -1,5 +1,7 @@
 {
-    "name": "panelis/setting",
+    "name": "panelis-php/setting",
+    "description": "Manage application settings including general configuration, logging, mail, formatting, and system options",
+    "keywords": ["panelis"],
     "autoload": {
         "psr-4": {
             "Panelis\\Setting\\": "src/",
@@ -10,6 +12,18 @@
     "autoload-dev": {
         "psr-4": {
             "Panelis\\Setting\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Panelis\\Setting\\Providers\\SettingServiceProvider"
+            ]
+        },
+        "panelis": {
+            "plugins": [
+                "Panelis\\Setting\\Plugins\\SettingPlugin"
+            ]
         }
     }
 }

@@ -23,8 +23,6 @@ class ManageCountries extends ManageRecords
 
     public function mount(): void
     {
-        abort_unless(config('module.location', false), Response::HTTP_NOT_FOUND);
-
         abort_unless(
             user_can(CountryPermission::Browse) && user_can(CountryPermission::Add),
             Response::HTTP_FORBIDDEN,

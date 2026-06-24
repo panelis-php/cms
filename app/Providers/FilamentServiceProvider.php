@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use BezhanSalleh\LanguageSwitch\LanguageSwitch;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Support\Facades\FilamentTimezone;
@@ -26,11 +25,6 @@ class FilamentServiceProvider extends ServiceProvider
         FilamentTimezone::set(config('app.datetime_timezone'));
 
         Resource::scopeToTenant((bool) app('panelis')['multitenant'] ?? false);
-
-        LanguageSwitch::configureUsing(function (LanguageSwitch $lang) {
-            $lang->locales(config('app.locales', [config('app.locale', 'en')]))
-                ->circular();
-        });
 
         TextColumn::macro('makeSinceDate', function (string $name, ?string $label = null, bool $hidden = false): TextColumn {
             return TextColumn::make($name)

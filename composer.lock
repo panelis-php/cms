@@ -4612,7 +4612,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/Database",
-                "reference": "a5722f79bcd4a23ab523e3c03cdff68355fbae55"
+                "reference": "c201aa22f2ad260f728b8c99d3828516f1ba24f2"
             },
             "type": "library",
             "extra": {
@@ -4639,7 +4639,7 @@
                     "Panelis\\Database\\Tests\\": "tests/"
                 }
             },
-            "description": "Manage database backups, including manual backups, cloud uploads, and backup history.",
+            "description": "Manage database backups, including manual backups, cloud uploads, and backup history",
             "keywords": [
                 "panelis"
             ],

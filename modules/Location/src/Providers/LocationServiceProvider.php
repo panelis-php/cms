@@ -11,7 +11,7 @@ class LocationServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'location');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', self::NAMESPACE);
 
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
 

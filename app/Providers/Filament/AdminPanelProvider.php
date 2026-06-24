@@ -25,7 +25,6 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Panelis\Branch\Models\Branch;
 use Panelis\Branch\Panel\Pages\EditBranch;
 use Panelis\Branch\Panel\Pages\RegisterBranch;
-use Panelis\Module\Http\Middleware\RegisterModules;
 use Panelis\Package;
 use Panelis\User\Panel\Pages\EditProfile;
 use Panelis\User\Panel\Pages\EmailVerificationPrompt;
@@ -92,6 +91,8 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 AccountWidget::class,
@@ -109,7 +110,6 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
 
                 // custom middlewares
-                RegisterModules::class,
                 RegisterNavigations::class,
                 SetTheme::class,
             ])

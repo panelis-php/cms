@@ -48,7 +48,7 @@ class CountryResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return config('module.location', false) && self::canAccess();
+        return self::canAccess();
     }
 
     public static function form(Schema $schema): Schema

@@ -1,6 +1,6 @@
 {
     "name": "panelis-php/database",
-    "description": "Manage database backups, including manual backups, cloud uploads, and backup history.",
+    "description": "Manage database backups, including manual backups, cloud uploads, and backup history",
     "keywords": ["panelis"],
     "type": "library",
     "autoload": {

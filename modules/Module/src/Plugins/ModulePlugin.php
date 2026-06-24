@@ -6,7 +6,6 @@ namespace Panelis\Module\Plugins;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Panelis\Module\Panel\Resources\ModuleResource;
 
 class ModulePlugin implements Plugin
 {
@@ -17,9 +16,7 @@ class ModulePlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel->resources([
-            ModuleResource::class,
-        ]);
+        $panel->discoverPages(__DIR__.'/../Panel/Pages', 'Panelis\\Module\\Panel\\Pages');
     }
 
     public function boot(Panel $panel): void {}

@@ -1,0 +1,47 @@
+{
+  "name": "panelis-php/cms",
+  "description": "Installable CMS foundation for Laravel and Filament applications",
+  "keywords": [
+    "laravel",
+    "filament",
+    "cms",
+    "panelis"
+  ],
+  "authors": [
+    {
+      "name": "Yugo",
+      "email": "dedy.yugo.purwanto@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "type": "library",
+  "require": {
+    "php": "^8.3",
+    "filament/filament": "^5.1",
+    "laravel/framework": "^13.0",
+    "panelis-php/branch": "^1.0",
+    "panelis-php/database": "^1.0",
+    "panelis-php/module": "^1.1",
+    "panelis-php/setting": "^1.4",
+    "panelis-php/translation": "^1.0",
+    "panelis-php/user": "^1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Panelis\\Cms\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Panelis\\Cms\\Providers\\CmsServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "laravel/pint": "^1.29"
+  }
+}

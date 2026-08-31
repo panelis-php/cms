@@ -57,10 +57,22 @@ class AdminPanelProvider extends PanelProvider
             })
             ->databaseNotifications()
             ->navigationGroups([
-                NavigationGroup::make(__('location.label'))->icon(Heroicon::OutlinedMapPin)->collapsed(),
-                NavigationGroup::make(__('user.label'))->collapsed()->icon(Heroicon::OutlinedUserGroup),
-                NavigationGroup::make(__('job.label'))->collapsed()->icon(Heroicon::OutlinedCalendar),
-                NavigationGroup::make(__('ui.system'))->collapsed()->icon(Heroicon::OutlinedCog8Tooth),
+                'location::location.label' => NavigationGroup::make()
+                    ->label(fn (): string => __('location::location.label'))
+                    ->icon(Heroicon::OutlinedMapPin)
+                    ->collapsed(),
+                'user::user.navigation' => NavigationGroup::make()
+                    ->label(fn (): string => __('user::user.navigation'))
+                    ->collapsed()
+                    ->icon(Heroicon::OutlinedUserGroup),
+                'job::job.label' => NavigationGroup::make()
+                    ->label(fn (): string => __('job::job.label'))
+                    ->collapsed()
+                    ->icon(Heroicon::OutlinedCalendar),
+                'ui.system' => NavigationGroup::make()
+                    ->label(fn (): string => __('ui.system'))
+                    ->collapsed()
+                    ->icon(Heroicon::OutlinedCog8Tooth),
             ])
             ->login(Login::class)
             ->passwordReset(RequestPasswordReset::class)

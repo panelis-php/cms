@@ -34,6 +34,22 @@
       "src/helpers.php"
     ]
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Panelis\\Cms\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    },
+    "platform": {
+      "php": "8.3"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
@@ -42,6 +58,9 @@
     }
   },
   "require-dev": {
-    "laravel/pint": "^1.29"
+    "laravel/pint": "^1.29",
+    "orchestra/testbench": "^11.0",
+    "pestphp/pest": "^4.4",
+    "pestphp/pest-plugin-laravel": "^4.1"
   }
 }

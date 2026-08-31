@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Panelis\Setting\Panel\Clusters\Settings\Enums\NumberFormat;
 
 if (! function_exists('get_timezone')) {
     function get_timezone(): string
@@ -61,15 +62,35 @@ if (! function_exists('set_locale')) {
 if (! function_exists('human_number')) {
     function human_number(int|float $number): string
     {
-        if (empty(config('app.number_format'))) {
+        $configuredFormat = config('app.number_format');
+
+        if (empty($configuredFormat)) {
             Log::warning('Config app.number_format is not set. Using default: "0 . ,".');
 
             return number_format($number);
         }
 
-        [$decimal, $thousand, $separator] = explode(' ', config('app.number_format'));
+        if ($configuredFormat instanceof NumberFormat) {
+            return number_format($number, ...$configuredFormat->display());
+        }
 
-        return number_format($number, $decimal, $thousand, $separator);
+        $format = NumberFormat::tryFrom((string) $configuredFormat);
+
+        if ($format !== null) {
+            return number_format($number, ...$format->display());
+        }
+
+        $parts = explode(' ', (string) $configuredFormat);
+
+        if (count($parts) !== 3) {
+            Log::warning('Invalid config app.number_format. Using default: "0 . ,".');
+
+            return number_format($number);
+        }
+
+        [$decimal, $thousand, $separator] = $parts;
+
+        return number_format($number, (int) $decimal, $thousand, $separator);
     }
 }
 

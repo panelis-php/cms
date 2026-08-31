@@ -25,7 +25,7 @@ panel configuration callback in an application service provider:
 use Filament\Panel;
 use Panelis\Cms\Providers\AdminPanelProvider;
 
-public function boot(): void
+public function register(): void
 {
     AdminPanelProvider::configurePanel(function (Panel $panel): void {
         $panel->plugins([

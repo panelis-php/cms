@@ -2,6 +2,7 @@
 
 namespace Panelis\Cms\Providers;
 
+use Closure;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -32,6 +33,16 @@ use Panelis\User\Panel\Pages\RequestPasswordReset;
 
 class AdminPanelProvider extends PanelProvider
 {
+    /**
+     * @var array<int, Closure(Panel): void>
+     */
+    protected static array $panelConfigurators = [];
+
+    public static function configurePanel(Closure $configurator): void
+    {
+        static::$panelConfigurators[] = $configurator;
+    }
+
     public function panel(Panel $panel): Panel
     {
         $panel->default()->id(config('panelis.id'));
@@ -43,6 +54,10 @@ class AdminPanelProvider extends PanelProvider
         }
 
         $panel->plugins(get_plugins());
+
+        foreach (static::$panelConfigurators as $configurator) {
+            $configurator($panel);
+        }
 
         return $panel
             ->path(app('panelis')['path'] ?? '')

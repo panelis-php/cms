@@ -20,6 +20,7 @@ class CmsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadTranslationsFrom(__DIR__.'/../../lang');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'cms');
 
         $this->publishes([
             __DIR__.'/../../config/panelis.php' => config_path('panelis.php'),

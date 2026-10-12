@@ -33,3 +33,21 @@ it('registers application plugins through the panel configuration hook', functio
 
     expect($panel->hasPlugin('custom-plugin'))->toBeTrue();
 });
+
+it('only registers navigation groups for installed packages', function (): void {
+    app()->instance('panelis', [
+        'multitenant' => false,
+        'path' => '',
+        'domain' => '',
+    ]);
+    config(['panelis.id' => 'admin']);
+    app()->setBasePath(dirname(__DIR__, 2));
+
+    $groups = (new AdminPanelProvider(app()))->panel(Panel::make())->getNavigationGroups();
+
+    expect($groups)
+        ->toHaveKey('user::user.navigation')
+        ->toHaveKey('ui.system')
+        ->not->toHaveKey('job::job.label')
+        ->not->toHaveKey('location::location.label');
+});

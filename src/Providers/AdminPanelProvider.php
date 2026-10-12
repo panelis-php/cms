@@ -3,6 +3,7 @@
 namespace Panelis\Cms\Providers;
 
 use Closure;
+use Composer\InstalledVersions;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -71,24 +72,7 @@ class AdminPanelProvider extends PanelProvider
                 return filled(config('app.favicon')) ? Storage::url(config('app.favicon')) : null;
             })
             ->databaseNotifications()
-            ->navigationGroups([
-                'location::location.label' => NavigationGroup::make()
-                    ->label(fn (): string => __('location::location.label'))
-                    ->icon(Heroicon::OutlinedMapPin)
-                    ->collapsed(),
-                'user::user.navigation' => NavigationGroup::make()
-                    ->label(fn (): string => __('user::user.navigation'))
-                    ->collapsed()
-                    ->icon(Heroicon::OutlinedUserGroup),
-                'job::job.label' => NavigationGroup::make()
-                    ->label(fn (): string => __('job::job.label'))
-                    ->collapsed()
-                    ->icon(Heroicon::OutlinedCalendar),
-                'ui.system' => NavigationGroup::make()
-                    ->label(fn (): string => __('ui.system'))
-                    ->collapsed()
-                    ->icon(Heroicon::OutlinedCog8Tooth),
-            ])
+            ->navigationGroups($this->navigationGroups())
             ->login(Login::class)
             ->passwordReset(RequestPasswordReset::class)
             ->profile(EditProfile::class)
@@ -112,5 +96,39 @@ class AdminPanelProvider extends PanelProvider
                 SetTheme::class,
             ])
             ->authMiddleware([Authenticate::class]);
+    }
+
+    /**
+     * @return array<string, NavigationGroup>
+     */
+    private function navigationGroups(): array
+    {
+        $groups = [];
+
+        if (InstalledVersions::isInstalled('panelis-php/location')) {
+            $groups['location::location.label'] = NavigationGroup::make()
+                ->label(fn (): string => __('location::location.label'))
+                ->icon(Heroicon::OutlinedMapPin)
+                ->collapsed();
+        }
+
+        $groups['user::user.navigation'] = NavigationGroup::make()
+            ->label(fn (): string => __('user::user.navigation'))
+            ->collapsed()
+            ->icon(Heroicon::OutlinedUserGroup);
+
+        if (InstalledVersions::isInstalled('panelis-php/job')) {
+            $groups['job::job.label'] = NavigationGroup::make()
+                ->label(fn (): string => __('job::job.label'))
+                ->collapsed()
+                ->icon(Heroicon::OutlinedCalendar);
+        }
+
+        $groups['ui.system'] = NavigationGroup::make()
+            ->label(fn (): string => __('ui.system'))
+            ->collapsed()
+            ->icon(Heroicon::OutlinedCog8Tooth);
+
+        return $groups;
     }
 }
